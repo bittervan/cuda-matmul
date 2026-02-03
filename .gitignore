@@ -31,3 +31,7 @@ Makefile
 Thumbs.db
 
 ./claude
+
+# Log files
+logs/
+*.log
