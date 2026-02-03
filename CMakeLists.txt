@@ -33,31 +33,34 @@ if (NOT CUDART_LIBRARY)
   message(FATAL_ERROR "Could not find libcudart in: ${CUDA_LIB_DIR}")
 endif()
 
+# Collect all source files in src directory
+file(GLOB SRC_FILES "src/*.cu")
+
 add_executable(main
-  src/main.cu
+  ${SRC_FILES}
 )
 
 # Treat .cu as C++ source, compile with clang as CUDA via -x cuda
-set_source_files_properties(src/main.cu src/saxpy.cu PROPERTIES LANGUAGE CXX)
+set_source_files_properties(${SRC_FILES} PROPERTIES LANGUAGE CXX)
 
-target_include_directories(hello PRIVATE
+target_include_directories(main PRIVATE
   "${CMAKE_CURRENT_SOURCE_DIR}/include"
   "${CUDA_INC_DIR1}"
   "${CUDA_INC_DIR2}"
 )
 
-target_compile_options(hello PRIVATE
+target_compile_options(main PRIVATE
   "SHELL:-x cuda"
   "SHELL:--cuda-path=${CUDA_HOME}"
   "SHELL:--cuda-gpu-arch=${CUDA_GPU_ARCH}"
 )
 
-target_link_libraries(hello PRIVATE
+target_link_libraries(main PRIVATE
   "${CUDART_LIBRARY}"
 )
 
 # So you don't need to export LD_LIBRARY_PATH to run
-set_target_properties(hello PROPERTIES
+set_target_properties(main PROPERTIES
   BUILD_RPATH "${CUDA_LIB_DIR}"
   INSTALL_RPATH "${CUDA_LIB_DIR}"
 )
