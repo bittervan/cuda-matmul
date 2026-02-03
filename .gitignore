@@ -41,3 +41,6 @@ logs/
 
 # Editor cache
 .cache/
+
+# Test data
+data/

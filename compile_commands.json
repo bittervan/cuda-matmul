@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/home/bittervan/Code/matrix",
+  "command": "clang++  -I/home/bittervan/Code/matrix/include -x c++ -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/bittervan/Tools/miniforge3/envs/cuda12/include  -I/home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/include -std=gnu++17 -x cuda --cuda-path=/home/bittervan/Tools/miniforge3/envs/cuda12 --cuda-gpu-arch= -o CMakeFiles/main.dir/src/main.cu.o -c /home/bittervan/Code/matrix/src/main.cu",
+  "file": "/home/bittervan/Code/matrix/src/main.cu",
+  "output": "CMakeFiles/main.dir/src/main.cu.o"
+},
+{
+  "directory": "/home/bittervan/Code/matrix",
+  "command": "clang++  -I/home/bittervan/Code/matrix/include -x c++ -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/bittervan/Tools/miniforge3/envs/cuda12/include  -I/home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/include -std=gnu++17 -x cuda --cuda-path=/home/bittervan/Tools/miniforge3/envs/cuda12 --cuda-gpu-arch= -o CMakeFiles/main.dir/src/matmul.cu.o -c /home/bittervan/Code/matrix/src/matmul.cu",
+  "file": "/home/bittervan/Code/matrix/src/matmul.cu",
+  "output": "CMakeFiles/main.dir/src/matmul.cu.o"
+},
+{
+  "directory": "/home/bittervan/Code/matrix",
+  "command": "clang++  -I/home/bittervan/Code/matrix/include -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/bittervan/Tools/miniforge3/envs/cuda12/include  -I/home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/include -std=gnu++17 -x cuda --cuda-path=/home/bittervan/Tools/miniforge3/envs/cuda12 --cuda-gpu-arch= -o CMakeFiles/main.dir/src/loader.cpp.o -c /home/bittervan/Code/matrix/src/loader.cpp",
+  "file": "/home/bittervan/Code/matrix/src/loader.cpp",
+  "output": "CMakeFiles/main.dir/src/loader.cpp.o"
+},
+{
+  "directory": "/home/bittervan/Code/matrix",
+  "command": "clang++   -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/bittervan/Tools/miniforge3/envs/cuda12/include  -I/home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/include -std=gnu++17 -o CMakeFiles/generate_test_data.dir/tools/generate_test_data.cpp.o -c /home/bittervan/Code/matrix/tools/generate_test_data.cpp",
+  "file": "/home/bittervan/Code/matrix/tools/generate_test_data.cpp",
+  "output": "CMakeFiles/generate_test_data.dir/tools/generate_test_data.cpp.o"
+},
+{
+  "directory": "/home/bittervan/Code/matrix",
+  "command": "clang++  -I/home/bittervan/Code/matrix/include -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/bittervan/Tools/miniforge3/envs/cuda12/include  -I/home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/include -std=gnu++17 -x cuda --cuda-path=/home/bittervan/Tools/miniforge3/envs/cuda12 --cuda-gpu-arch= -o CMakeFiles/test_runner.dir/tools/test_runner.cpp.o -c /home/bittervan/Code/matrix/tools/test_runner.cpp",
+  "file": "/home/bittervan/Code/matrix/tools/test_runner.cpp",
+  "output": "CMakeFiles/test_runner.dir/tools/test_runner.cpp.o"
+},
+{
+  "directory": "/home/bittervan/Code/matrix",
+  "command": "clang++  -I/home/bittervan/Code/matrix/include -x c++ -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/bittervan/Tools/miniforge3/envs/cuda12/include  -I/home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/include -std=gnu++17 -x cuda --cuda-path=/home/bittervan/Tools/miniforge3/envs/cuda12 --cuda-gpu-arch= -o CMakeFiles/test_runner.dir/src/matmul.cu.o -c /home/bittervan/Code/matrix/src/matmul.cu",
+  "file": "/home/bittervan/Code/matrix/src/matmul.cu",
+  "output": "CMakeFiles/test_runner.dir/src/matmul.cu.o"
+},
+{
+  "directory": "/home/bittervan/Code/matrix",
+  "command": "clang++  -I/home/bittervan/Code/matrix/include -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/bittervan/Tools/miniforge3/envs/cuda12/include  -I/home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/include -std=gnu++17 -x cuda --cuda-path=/home/bittervan/Tools/miniforge3/envs/cuda12 --cuda-gpu-arch= -o CMakeFiles/test_runner.dir/src/loader.cpp.o -c /home/bittervan/Code/matrix/src/loader.cpp",
+  "file": "/home/bittervan/Code/matrix/src/loader.cpp",
+  "output": "CMakeFiles/test_runner.dir/src/loader.cpp.o"
+}
+]

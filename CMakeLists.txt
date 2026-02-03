@@ -35,9 +35,11 @@ endif()
 
 # Collect all source files in src directory
 file(GLOB SRC_FILES "src/*.cu")
+file(GLOB CPP_FILES "src/*.cpp")
 
 add_executable(main
   ${SRC_FILES}
+  ${CPP_FILES}
 )
 
 # Treat .cu as C++ source, compile with clang as CUDA via -x cuda
@@ -63,4 +65,52 @@ target_link_libraries(main PRIVATE
 set_target_properties(main PROPERTIES
   BUILD_RPATH "${CUDA_LIB_DIR}"
   INSTALL_RPATH "${CUDA_LIB_DIR}"
+)
+
+# ---- Test data generator tool ----
+add_executable(generate_test_data
+  tools/generate_test_data.cpp
+)
+
+# ---- Test runner ----
+add_executable(test_runner
+  tools/test_runner.cpp
+  src/matmul.cu
+  src/loader.cpp
+)
+
+set_source_files_properties(${SRC_FILES} PROPERTIES LANGUAGE CXX)
+
+target_include_directories(test_runner PRIVATE
+  "${CMAKE_CURRENT_SOURCE_DIR}/include"
+  "${CUDA_INC_DIR1}"
+  "${CUDA_INC_DIR2}"
+)
+
+target_compile_options(test_runner PRIVATE
+  "SHELL:-x cuda"
+  "SHELL:--cuda-path=${CUDA_HOME}"
+  "SHELL:--cuda-gpu-arch=${CUDA_GPU_ARCH}"
+)
+
+target_link_libraries(test_runner PRIVATE
+  "${CUDART_LIBRARY}"
+)
+
+set_target_properties(test_runner PROPERTIES
+  BUILD_RPATH "${CUDA_LIB_DIR}"
+  INSTALL_RPATH "${CUDA_LIB_DIR}"
+)
+
+# ---- Custom targets ----
+# Rebuild everything
+add_custom_target(rebuild
+  COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --clean-first
+)
+
+# Run tests
+add_custom_target(test
+  COMMAND test_runner
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  DEPENDS test_runner
 )
