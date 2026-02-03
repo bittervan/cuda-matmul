@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/bittervan/Code/matrix/hello.cu" "CMakeFiles/hello.dir/hello.cu.o" "gcc" "CMakeFiles/hello.dir/hello.cu.o.d"
+  "/home/bittervan/Code/matrix/src/main.cu" "CMakeFiles/hello.dir/src/main.cu.o" "gcc" "CMakeFiles/hello.dir/src/main.cu.o.d"
+  "/home/bittervan/Code/matrix/src/saxpy.cu" "CMakeFiles/hello.dir/src/saxpy.cu.o" "gcc" "CMakeFiles/hello.dir/src/saxpy.cu.o.d"
   "" "hello" "gcc" "CMakeFiles/hello.dir/link.d"
   )
 

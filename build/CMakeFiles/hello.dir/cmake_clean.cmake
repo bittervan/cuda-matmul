@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/hello.dir/link.d"
-  "CMakeFiles/hello.dir/hello.cu.o"
-  "CMakeFiles/hello.dir/hello.cu.o.d"
+  "CMakeFiles/hello.dir/src/main.cu.o"
+  "CMakeFiles/hello.dir/src/main.cu.o.d"
+  "CMakeFiles/hello.dir/src/saxpy.cu.o"
+  "CMakeFiles/hello.dir/src/saxpy.cu.o.d"
   "hello"
   "hello.pdb"
 )

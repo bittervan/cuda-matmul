@@ -129,29 +129,53 @@ hello/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/build
 .PHONY : hello/fast
 
-hello.o: hello.cu.o
-.PHONY : hello.o
+src/main.o: src/main.cu.o
+.PHONY : src/main.o
 
 # target to build an object file
-hello.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/hello.cu.o
-.PHONY : hello.cu.o
+src/main.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/src/main.cu.o
+.PHONY : src/main.cu.o
 
-hello.i: hello.cu.i
-.PHONY : hello.i
+src/main.i: src/main.cu.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-hello.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/hello.cu.i
-.PHONY : hello.cu.i
+src/main.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/src/main.cu.i
+.PHONY : src/main.cu.i
 
-hello.s: hello.cu.s
-.PHONY : hello.s
+src/main.s: src/main.cu.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-hello.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/hello.cu.s
-.PHONY : hello.cu.s
+src/main.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/src/main.cu.s
+.PHONY : src/main.cu.s
+
+src/saxpy.o: src/saxpy.cu.o
+.PHONY : src/saxpy.o
+
+# target to build an object file
+src/saxpy.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/src/saxpy.cu.o
+.PHONY : src/saxpy.cu.o
+
+src/saxpy.i: src/saxpy.cu.i
+.PHONY : src/saxpy.i
+
+# target to preprocess a source file
+src/saxpy.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/src/saxpy.cu.i
+.PHONY : src/saxpy.cu.i
+
+src/saxpy.s: src/saxpy.cu.s
+.PHONY : src/saxpy.s
+
+# target to generate assembly for a file
+src/saxpy.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/src/saxpy.cu.s
+.PHONY : src/saxpy.cu.s
 
 # Help Target
 help:
@@ -162,9 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hello"
-	@echo "... hello.o"
-	@echo "... hello.i"
-	@echo "... hello.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/saxpy.o"
+	@echo "... src/saxpy.i"
+	@echo "... src/saxpy.s"
 .PHONY : help
 
 

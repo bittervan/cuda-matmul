@@ -72,33 +72,49 @@ include CMakeFiles/hello.dir/flags.make
 CMakeFiles/hello.dir/codegen:
 .PHONY : CMakeFiles/hello.dir/codegen
 
-CMakeFiles/hello.dir/hello.cu.o: CMakeFiles/hello.dir/flags.make
-CMakeFiles/hello.dir/hello.cu.o: /home/bittervan/Code/matrix/hello.cu
-CMakeFiles/hello.dir/hello.cu.o: CMakeFiles/hello.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bittervan/Code/matrix/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/hello.dir/hello.cu.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) -x c++ $(CXX_FLAGS) -MD -MT CMakeFiles/hello.dir/hello.cu.o -MF CMakeFiles/hello.dir/hello.cu.o.d -o CMakeFiles/hello.dir/hello.cu.o -c /home/bittervan/Code/matrix/hello.cu
+CMakeFiles/hello.dir/src/main.cu.o: CMakeFiles/hello.dir/flags.make
+CMakeFiles/hello.dir/src/main.cu.o: /home/bittervan/Code/matrix/src/main.cu
+CMakeFiles/hello.dir/src/main.cu.o: CMakeFiles/hello.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bittervan/Code/matrix/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/hello.dir/src/main.cu.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) -x c++ $(CXX_FLAGS) -MD -MT CMakeFiles/hello.dir/src/main.cu.o -MF CMakeFiles/hello.dir/src/main.cu.o.d -o CMakeFiles/hello.dir/src/main.cu.o -c /home/bittervan/Code/matrix/src/main.cu
 
-CMakeFiles/hello.dir/hello.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/hello.dir/hello.cu.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) -x c++ $(CXX_FLAGS) -E /home/bittervan/Code/matrix/hello.cu > CMakeFiles/hello.dir/hello.cu.i
+CMakeFiles/hello.dir/src/main.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/hello.dir/src/main.cu.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) -x c++ $(CXX_FLAGS) -E /home/bittervan/Code/matrix/src/main.cu > CMakeFiles/hello.dir/src/main.cu.i
 
-CMakeFiles/hello.dir/hello.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hello.dir/hello.cu.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) -x c++ $(CXX_FLAGS) -S /home/bittervan/Code/matrix/hello.cu -o CMakeFiles/hello.dir/hello.cu.s
+CMakeFiles/hello.dir/src/main.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hello.dir/src/main.cu.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) -x c++ $(CXX_FLAGS) -S /home/bittervan/Code/matrix/src/main.cu -o CMakeFiles/hello.dir/src/main.cu.s
+
+CMakeFiles/hello.dir/src/saxpy.cu.o: CMakeFiles/hello.dir/flags.make
+CMakeFiles/hello.dir/src/saxpy.cu.o: /home/bittervan/Code/matrix/src/saxpy.cu
+CMakeFiles/hello.dir/src/saxpy.cu.o: CMakeFiles/hello.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bittervan/Code/matrix/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/hello.dir/src/saxpy.cu.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) -x c++ $(CXX_FLAGS) -MD -MT CMakeFiles/hello.dir/src/saxpy.cu.o -MF CMakeFiles/hello.dir/src/saxpy.cu.o.d -o CMakeFiles/hello.dir/src/saxpy.cu.o -c /home/bittervan/Code/matrix/src/saxpy.cu
+
+CMakeFiles/hello.dir/src/saxpy.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/hello.dir/src/saxpy.cu.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) -x c++ $(CXX_FLAGS) -E /home/bittervan/Code/matrix/src/saxpy.cu > CMakeFiles/hello.dir/src/saxpy.cu.i
+
+CMakeFiles/hello.dir/src/saxpy.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hello.dir/src/saxpy.cu.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) -x c++ $(CXX_FLAGS) -S /home/bittervan/Code/matrix/src/saxpy.cu -o CMakeFiles/hello.dir/src/saxpy.cu.s
 
 # Object files for target hello
 hello_OBJECTS = \
-"CMakeFiles/hello.dir/hello.cu.o"
+"CMakeFiles/hello.dir/src/main.cu.o" \
+"CMakeFiles/hello.dir/src/saxpy.cu.o"
 
 # External object files for target hello
 hello_EXTERNAL_OBJECTS =
 
-hello: CMakeFiles/hello.dir/hello.cu.o
+hello: CMakeFiles/hello.dir/src/main.cu.o
+hello: CMakeFiles/hello.dir/src/saxpy.cu.o
 hello: CMakeFiles/hello.dir/build.make
 hello: CMakeFiles/hello.dir/compiler_depend.ts
 hello: /home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/lib/libcudart.so
 hello: CMakeFiles/hello.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bittervan/Code/matrix/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable hello"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bittervan/Code/matrix/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable hello"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hello.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

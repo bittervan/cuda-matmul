@@ -1,19 +1,7 @@
+#include <cmath>
 #include <cstdio>
-#include <cuda_runtime.h>
-
-#define CUDA_CHECK(call) do {                              \
-  cudaError_t _e = (call);                                 \
-  if (_e != cudaSuccess) {                                 \
-    fprintf(stderr, "CUDA error %s:%d: %s\n",               \
-            __FILE__, __LINE__, cudaGetErrorString(_e));    \
-    std::exit(1);                                           \
-  }                                                        \
-} while (0)
-
-__global__ void saxpy(int n, float a, const float* x, float* y) {
-  int i = blockIdx.x * blockDim.x + threadIdx.x;
-  if (i < n) y[i] = a * x[i] + y[i];
-}
+#include "cuda_utils.h"
+#include "saxpy.h"
 
 int main() {
   const int N = 1 << 20;

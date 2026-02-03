@@ -2,7 +2,8 @@ hello: \
   /usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib64/Scrt1.o \
   /usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib64/crti.o \
   /usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
-  CMakeFiles/hello.dir/hello.cu.o \
+  CMakeFiles/hello.dir/src/main.cu.o \
+  CMakeFiles/hello.dir/src/saxpy.cu.o \
   /home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/lib/libcudart.so \
   /home/bittervan/Tools/miniforge3/envs/cuda12/lib/libstdc++.so \
   /usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib64/libm.so \
@@ -37,7 +38,9 @@ hello: \
 
 /usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
-CMakeFiles/hello.dir/hello.cu.o:
+CMakeFiles/hello.dir/src/main.cu.o:
+
+CMakeFiles/hello.dir/src/saxpy.cu.o:
 
 /home/bittervan/Tools/miniforge3/envs/cuda12/targets/x86_64-linux/lib/libcudart.so:
 
