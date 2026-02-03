@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/bittervan/Code/matrix/build/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.24)
+
+# Use clang for CUDA support (must be before project())
+set(CMAKE_CXX_COMPILER "clang++")
+
 project(hello_clang_cuda LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -7,9 +11,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Generate compile_commands.json for LSP support
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# ---- Configure these two as you like ----
-set(CUDA_HOME "/home/bittervan/Tools/miniforge3/envs/cuda12" CACHE PATH "CUDA Toolkit root (conda env path)")
-set(CUDA_GPU_ARCH "sm_70" CACHE STRING "CUDA GPU arch for clang (e.g. sm_70)")
+# Use clang for CUDA support
+set(CMAKE_CXX_COMPILER "clang++")
+
+# ---- Read from environment variables ----
+set(CUDA_HOME "$ENV{CUDA_HOME}" CACHE PATH "CUDA Toolkit root (conda env path)")
+set(CUDA_GPU_ARCH "$ENV{CUDA_GPU_ARCH}" CACHE STRING "CUDA GPU arch for clang (e.g. sm_70)")
 
 # CUDA include/lib paths (conda-style layout)
 set(CUDA_INC_DIR1 "${CUDA_HOME}/include")
