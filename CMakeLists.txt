@@ -33,9 +33,8 @@ if (NOT CUDART_LIBRARY)
   message(FATAL_ERROR "Could not find libcudart in: ${CUDA_LIB_DIR}")
 endif()
 
-add_executable(hello
+add_executable(main
   src/main.cu
-  src/saxpy.cu
 )
 
 # Treat .cu as C++ source, compile with clang as CUDA via -x cuda
