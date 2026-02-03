@@ -1,12 +1,22 @@
 #include <matmul.h>
+#include <cassert>
 
 __global__ void MatMulKernel(const Matrix A, const Matrix B, Matrix C) {
     float Cvalue = 0;
+
+    assert(A.width == B.height);
+    int len = A.width;
     
     int row = blockIdx.y * blockDim.y + threadIdx.y;
     int col = blockIdx.x * blockDim.x + threadIdx.x;
 
-    printf("row: %x, col: %x\n", row, col);
+    if (row < C.height && col < C.width) {
+        for (int i = 0; i < len; i++) {
+            Cvalue += A.elements[row * A.width + i] * B.elements[i * B.width + col];
+        }
+    }
+
+    C.elements[row * C.width + col] = Cvalue;
 }
 
 void MatMul(const Matrix A, const Matrix B, Matrix C) {
