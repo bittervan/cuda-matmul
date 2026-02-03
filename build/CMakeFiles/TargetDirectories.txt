@@ -1,0 +1,3 @@
+/home/bittervan/Code/matrix/build/CMakeFiles/hello.dir
+/home/bittervan/Code/matrix/build/CMakeFiles/edit_cache.dir
+/home/bittervan/Code/matrix/build/CMakeFiles/rebuild_cache.dir

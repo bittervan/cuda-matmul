@@ -1,0 +1,13 @@
+name: cuda12
+channels:
+  - conda-forge
+  - nvidia
+dependencies:
+  - cuda-nvcc=12.4
+  - cuda-cudart-dev=12.4
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.4
+  - cuda-libraries-dev
+prefix: /home/bittervan/Tools/miniforge3/envs/cuda12
