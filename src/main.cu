@@ -14,12 +14,6 @@ void PrintMatrix(const char* name, const Matrix m) {
 }
 
 int main() {
-    // 简单的 3x3 矩阵乘法示例
-    // A = [1 2 3]    B = [7  8  9]
-    //     [4 5 6]        [10 11 12]
-    //     [7 8 9]        [13 14 15]
-    // 结果 C 应该是 3x3
-
     const int M = 3, N = 3, K = 3;
 
     Matrix A, B, C;
