@@ -90,6 +90,23 @@ int main() {
     GenerateTestCase("boundary_16", 16, 16, 16);
     GenerateTestCase("boundary_17", 17, 17, 17);  // 测试不能被 BLOCK_SIZE 整除的情况
 
+    // 生成100组随机测试用例
+    std::cout << "\n========================================\n";
+    std::cout << "Generating 100 random test cases...\n";
+    std::cout << "========================================\n";
+
+    for (int i = 0; i < 100; i++) {
+        // 随机生成尺寸：16~1024之间
+        int M = 16 + rand() % 1009;
+        int K = 16 + rand() % 1009;
+        int N = 16 + rand() % 1009;
+
+        char name[64];
+        snprintf(name, sizeof(name), "random_%03d", i);
+
+        GenerateTestCase(name, M, K, N);
+    }
+
     std::cout << "\nAll test cases generated successfully!\n";
     return 0;
 }

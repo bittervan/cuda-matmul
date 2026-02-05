@@ -78,7 +78,8 @@ int main() {
     std::cout << "  Matrix Multiplication Test Runner\n";
     std::cout << "==============================================\n";
 
-    // Run all test cases
+    // Run fixed test cases
+    std::cout << "\n--- Fixed Test Cases ---\n";
     RunTest("tiny");
     RunTest("small");
     RunTest("medium");
@@ -89,8 +90,58 @@ int main() {
     RunTest("boundary_16");
     RunTest("boundary_17");
 
+    // Run 100 random test cases
+    std::cout << "\n--- Random Test Cases (100) ---\n";
+    int passed = 0;
+    int failed = 0;
+
+    for (int i = 0; i < 100; i++) {
+        char name[64];
+        snprintf(name, sizeof(name), "random_%03d", i);
+
+        // 简化输出，只显示测试名称和结果
+        std::cout << "\n[Test " << (i + 1) << "/100] " << name << "... ";
+
+        Matrix A, B, C_expected, C_computed;
+
+        // Load test data
+        if (!LoadMatrix("data/" + std::string(name) + "_A.bin", A) ||
+            !LoadMatrix("data/" + std::string(name) + "_B.bin", B) ||
+            !LoadMatrix("data/" + std::string(name) + "_C.bin", C_expected)) {
+            std::cout << "FAILED to load!\n";
+            failed++;
+            continue;
+        }
+
+        // Allocate computed result
+        C_computed.height = C_expected.height;
+        C_computed.width = C_expected.width;
+        C_computed.elements = new float[C_expected.height * C_expected.width];
+
+        // Run matrix multiplication
+        MatMul(A, B, C_computed);
+
+        // Verify result (capture max_diff output)
+        float max_diff = VerifyMatrix(C_computed, C_expected);
+
+        if (max_diff >= 0) {
+            std::cout << "PASSED ✓\n";
+            passed++;
+        } else {
+            std::cout << "FAILED ✗\n";
+            failed++;
+        }
+
+        // Cleanup
+        FreeMatrix(A);
+        FreeMatrix(B);
+        FreeMatrix(C_expected);
+        delete[] C_computed.elements;
+    }
+
     std::cout << "\n==============================================\n";
     std::cout << "  All tests completed!\n";
+    std::cout << "  Random tests: " << passed << " passed, " << failed << " failed\n";
     std::cout << "==============================================\n";
 
     return 0;
