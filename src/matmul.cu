@@ -42,7 +42,7 @@ __global__ void MatMulKernel(const Matrix A, const Matrix B, Matrix C) {
     }
 }
 
-void MatMul(const Matrix A, const Matrix B, Matrix C) {
+void MatMul(const Matrix A, const Matrix B, Matrix C, int vx, int vy) {
     Matrix d_A, d_B, d_C;
     size_t size = 0;
 
@@ -63,7 +63,7 @@ void MatMul(const Matrix A, const Matrix B, Matrix C) {
     size = d_C.height * d_C.width;
     cudaMalloc(&d_C.elements, size * sizeof(float));
 
-    dim3 dimBlock(BLOCK_SIZE, BLOCK_SIZE);
+    dim3 dimBlock(vx, vy);
     dim3 dimGrid((d_C.width + dimBlock.x - 1) / dimBlock.x, (d_C.height + dimBlock.y - 1) / dimBlock.y);
 
     MatMulKernel<<<dimGrid, dimBlock>>>(d_A, d_B, d_C);

@@ -6,6 +6,6 @@ typedef struct {
   float *elements;
 } Matrix;
 
-void MatMul(const Matrix, const Matrix, Matrix);
+void MatMul(const Matrix, const Matrix, Matrix, int vx, int vy);
 
 #define BLOCK_SIZE 16

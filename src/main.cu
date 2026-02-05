@@ -44,8 +44,8 @@ int main() {
     PrintMatrix("Matrix A", A);
     PrintMatrix("Matrix B", B);
 
-    // 调用矩阵乘法
-    MatMul(A, B, C);
+    // 调用矩阵乘法，用奇怪的 block size 测试
+    MatMul(A, B, C, 13, 19);  // 质数 block size
 
     // 打印结果矩阵
     PrintMatrix("Matrix C (A x B)", C);

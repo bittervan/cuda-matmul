@@ -45,7 +45,8 @@ void RunTest(const std::string& test_name) {
     std::cout << "\nRunning MatMul...\n";
     auto start = std::chrono::high_resolution_clock::now();
 
-    MatMul(A, B, C_computed);
+    // 用奇怪的 block size 测试
+    MatMul(A, B, C_computed, 23, 17);  // 质数 block size
 
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
@@ -119,7 +120,10 @@ int main() {
         C_computed.elements = new float[C_expected.height * C_expected.width];
 
         // Run matrix multiplication
-        MatMul(A, B, C_computed);
+        // 每个测试用随机 block size
+        int vx = 7 + (rand() % 29);  // 7~35 之间的随机数
+        int vy = 11 + (rand() % 23); // 11~33 之间的随机数
+        MatMul(A, B, C_computed, vx, vy);
 
         // Verify result (capture max_diff output)
         float max_diff = VerifyMatrix(C_computed, C_expected);
