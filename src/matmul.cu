@@ -4,16 +4,40 @@
 __global__ void MatMulKernel(const Matrix A, const Matrix B, Matrix C) {
     float Cvalue = 0;
 
-    assert(A.width == B.height);
-    int len = A.width;
-    
+    __shared__ float s_A[BLOCK_SIZE][BLOCK_SIZE];
+    __shared__ float s_B[BLOCK_SIZE][BLOCK_SIZE];
+
     int row = blockIdx.y * blockDim.y + threadIdx.y;
     int col = blockIdx.x * blockDim.x + threadIdx.x;
 
-    if (row < C.height && col < C.width) {
-        for (int i = 0; i < len; i++) {
-            Cvalue += A.elements[row * A.width + i] * B.elements[i * B.width + col];
+    int len = A.width;
+
+    for (int k = 0; k < len; k += BLOCK_SIZE) {
+        int row_s = threadIdx.y;
+        int col_s = threadIdx.x;
+
+        if (row < A.height && col_s + k < A.width) {
+            s_A[row_s][col_s] = A.elements[row * A.width + col_s + k];
+        } else {
+            s_A[row_s][col_s] = 0;
         }
+
+        if (col < B.width && row_s + k < B.height) {
+            s_B[row_s][col_s] = B.elements[(row_s + k) * B.width + col];
+        } else {
+            s_B[row_s][col_s] = 0;
+        }
+
+        __syncthreads();
+
+        for (int i = 0; i < BLOCK_SIZE; i++) {
+            Cvalue += s_A[row_s][i] * s_B[i][col_s];
+        }
+
+        __syncthreads();
+    }
+
+    if (row < C.height && col < C.width) {
         C.elements[row * C.width + col] = Cvalue;
     }
 }
